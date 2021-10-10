@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="app">
+        <div class="container">
+            <h3>
+                TODO MANAGER
+            </h3>
+            <form @submit.prevent="createTask">
+                <div class="form-group row">
+                    <div class="col-9">
+                        <label for="">Create new task</label>
+                        <input type="text" class="form-control" v-model="task.title" />
+                    </div>
+                    <div class="col-auto mt-auto">
+                        <button class="btn btn-success" type="Submit">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="container mt-5">
+            <h3>
+                LIST OF ALL TASKS
+            </h3>
+            <div>
+                <div class="card mb-3" v-for="task, index in tasks" :key='index'>
+                    <div class="card-body justify-content-between px-4" :class="{'completed': task.completed}">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                { task.title } <span class="fa fa-check ms-2" v-if="task.completed"></span>
+                            </div>
+                            <div class="col-sm-auto">
+                                <button class="btn me-2 btn-info fa fa-undo" v-if="task.completed" title="Unmark Done" @click="toggleTaskState(task)"></button>
+                                <button class="btn me-2 btn-success fa fa-thumbs-up" v-if="!task.completed" title="Mark Done" @click="toggleTaskState(task)"></button>
+                                <button class="btn fa fa-trash bg-danger" @click="deleteTask(task)" title="Delete Task">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

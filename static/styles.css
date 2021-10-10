@@ -1,0 +1,14 @@
+.completed {
+    color: green;
+    background-color: rgb(222 223 223 / 22%);
+    border: 1px solid green;
+}
+
+label {
+    font-weight: bold;
+    font-size: larger;
+}
+
+h3 {
+    text-align: center;
+}

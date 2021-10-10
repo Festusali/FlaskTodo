@@ -1,0 +1,9 @@
+env/
+*.vscode
+__pycache__
+*.pyc
+*db.sqlite
+bootstrap4/
+bootstrap5/
+vue/
+font-awesome/
